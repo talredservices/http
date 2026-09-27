@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Unified HTTP, security, identity, and Identity-consumer settings under the canonical `zolta.*` configuration namespace while retaining legacy configuration aliases
-- Restored the released `zolta/forge ^1.0` dependency constraint for package consumers
+- Restored the released `talred/forge ^1.0` dependency constraint for package consumers
 
 ---
 

@@ -43,7 +43,7 @@ The key insight: your controller method shouldn't *contain* the pipeline — it 
 ## Install
 
 ```bash
-composer require zolta/http
+composer require talred/http
 ```
 
 Laravel auto-discovers the service provider. For Symfony, register the bundle in `config/bundles.php`.
@@ -312,13 +312,13 @@ Zolta HTTP is the **transport layer** — it wires HTTP to your application thro
 
 ```
 ┌─────────────────────────────────────────────┐
-│  zolta/http (Transport) ← you are here      │
+│  talred/http (Transport) ← you are here     │
 │  Attribute-driven routing & response        │
 ├─────────────────────────────────────────────┤
 │  zolta/cqrs (Application)                   │
 │  Commands, queries, events, transactions    │
 ├─────────────────────────────────────────────┤
-│  zolta/forge (Domain)                       │
+│  talred/forge (Domain)                      │
 │  Value Objects, rules, specs, entities      │
 └─────────────────────────────────────────────┘
 ```
@@ -327,9 +327,9 @@ When used together: a request arrives → **HTTP** resolves the pipeline via att
 
 | Package | Layer | Link |
 |---------|-------|------|
-| zolta/forge | Domain | [`packages/forge`](../zolta-forge) |
+| talred/forge | Domain | [`packages/forge`](../zolta-forge) |
 | zolta/cqrs | Application | [`packages/cqrs`](../zolta-cqrs) |
-| **zolta/http** | **Transport** | You are here |
+| **talred/http** | **Transport** | You are here |
 
 ---
 

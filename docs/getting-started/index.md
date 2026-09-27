@@ -13,7 +13,7 @@ navigation:
 Install via Composer:
 
 ```bash
-composer require zolta/http
+composer require talred/http
 ```
 
 ### Laravel
