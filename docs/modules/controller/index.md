@@ -13,7 +13,7 @@ The Controller module provides a framework-agnostic base class that all API cont
 ## Usage
 
 ```php
-use Zolta\Http\Controller\Controller;
+use Talred\Http\Controller\Controller;
 
 final class BookController extends Controller
 {

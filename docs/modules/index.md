@@ -1,6 +1,6 @@
 ---
 title: Modules
-description: Overview of all Zolta HTTP modules.
+description: Overview of all Talred HTTP modules.
 navigation:
   title: Modules
   order: 2
@@ -8,7 +8,7 @@ navigation:
 
 # Modules
 
-Zolta HTTP is organized into independent modules. Each module handles a specific concern in the HTTP request lifecycle and provides its own framework adapters.
+Talred HTTP is organized into independent modules. Each module handles a specific concern in the HTTP request lifecycle and provides its own framework adapters.
 
 ## Request lifecycle
 

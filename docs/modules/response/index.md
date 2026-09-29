@@ -13,7 +13,7 @@ The Response module standardizes API output through a consistent envelope format
 ## The Response attribute
 
 ```php
-use Zolta\Http\Response\Attributes\Response;
+use Talred\Http\Response\Attributes\Response;
 ```
 
 ### Signature
@@ -41,7 +41,7 @@ class Response
 The `ResponsePayload` is the standard envelope for all API responses:
 
 ```php
-use Zolta\Http\Response\ResponsePayload;
+use Talred\Http\Response\ResponsePayload;
 ```
 
 ### Structure
@@ -97,7 +97,7 @@ Every API response follows this envelope:
 Resources transform raw service output (response DTOs) into the `data` portion of the response envelope.
 
 ```php
-use Zolta\Http\Response\Resources\Resource;
+use Talred\Http\Response\Resources\Resource;
 ```
 
 ### Base class
@@ -137,7 +137,7 @@ abstract class Resource implements ApiResponseData
 
 namespace App\Services\UserService\API\Resources;
 
-use Zolta\Http\Response\Resources\Resource;
+use Talred\Http\Response\Resources\Resource;
 
 final class UserResource extends Resource
 {
@@ -194,7 +194,7 @@ final class RoleListResource extends Resource
 The `HttpResponse` helper converts payloads to framework-specific HTTP responses:
 
 ```php
-use Zolta\Http\Response\HttpResponse;
+use Talred\Http\Response\HttpResponse;
 
 // From a ResponsePayload
 $response = HttpResponse::fromPayload($payload, status: 200);
@@ -233,7 +233,7 @@ The return type is framework-specific (`JsonResponse` in Laravel, `Response` in 
 For server-rendered responses, use the `#[View]` attribute instead of `#[Response]`:
 
 ```php
-use Zolta\Http\Response\Attributes\Views\View;
+use Talred\Http\Response\Attributes\Views\View;
 
 #[Route(path: 'dashboard', prefix: null)]
 #[View(view: 'dashboard.index', engine: 'blade')]

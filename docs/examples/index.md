@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Complete real-world examples using Zolta HTTP.
+description: Complete real-world examples using Talred HTTP.
 navigation:
   title: Examples
   order: 4
@@ -8,7 +8,7 @@ navigation:
 
 # Examples
 
-Real-world examples from a User Management service built with Zolta HTTP.
+Real-world examples from a User Management service built with Talred HTTP.
 
 ## Authentication controller
 
@@ -28,11 +28,11 @@ use App\Services\UserManagementService\Application\DTOs\Input\auth\RegisterInput
 use App\Services\UserManagementService\Application\Services\auth\LoginService;
 use App\Services\UserManagementService\Application\Services\auth\LogoutService;
 use App\Services\UserManagementService\Application\Services\auth\RegisterService;
-use Zolta\Http\Controller\Controller;
-use Zolta\Http\Request\Attributes\Request;
-use Zolta\Http\Response\Attributes\Response;
-use Zolta\Http\Router\Attributes\Route;
-use Zolta\Http\Service\Attributes\Service;
+use Talred\Http\Controller\Controller;
+use Talred\Http\Request\Attributes\Request;
+use Talred\Http\Response\Attributes\Response;
+use Talred\Http\Router\Attributes\Route;
+use Talred\Http\Service\Attributes\Service;
 
 final class AuthenticationController extends Controller
 {
@@ -68,12 +68,12 @@ A full CRUD controller for roles with permission management:
 
 namespace App\Services\UserManagementService\API\Controllers;
 
-use Zolta\Http\Controller\Controller;
-use Zolta\Http\Request\Attributes\Request;
-use Zolta\Http\Response\Attributes\Response;
-use Zolta\Http\Router\Attributes\Route;
-use Zolta\Http\Service\Attributes\Doc;
-use Zolta\Http\Service\Attributes\Service;
+use Talred\Http\Controller\Controller;
+use Talred\Http\Request\Attributes\Request;
+use Talred\Http\Response\Attributes\Response;
+use Talred\Http\Router\Attributes\Route;
+use Talred\Http\Service\Attributes\Doc;
+use Talred\Http\Service\Attributes\Service;
 
 final class RoleController extends Controller
 {
@@ -132,7 +132,7 @@ final class RoleController extends Controller
 
 namespace App\Services\UserManagementService\API\Requests;
 
-use Zolta\Http\Request\BaseRequest;
+use Talred\Http\Request\BaseRequest;
 
 final class GetUserByIdRequest extends BaseRequest
 {
@@ -222,7 +222,7 @@ class RegisterInputDTO extends InputDTO
 
 namespace App\Services\UserManagementService\API\Resources;
 
-use Zolta\Http\Response\Resources\Resource;
+use Talred\Http\Response\Resources\Resource;
 
 final class GetUserByIdResource extends Resource
 {

@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Install and configure Zolta HTTP in your Laravel or Symfony application.
+description: Install and configure Talred HTTP in your Laravel or Symfony application.
 navigation:
   title: Getting Started
   order: 1
@@ -15,6 +15,10 @@ Install via Composer:
 ```bash
 composer require talred/http
 ```
+
+New code should import the `Talred\Http\...` namespace. The package keeps
+the existing `Zolta\Http\...` namespace available as a compatibility alias;
+the Laravel provider and command names remain unchanged for now.
 
 ### Laravel
 
@@ -35,7 +39,7 @@ Register the bundle in `config/bundles.php`:
 ```php
 return [
     // ...
-    Zolta\Http\Symfony\ZoltaHttpBundle::class => ['all' => true],
+    Talred\Http\Symfony\ZoltaHttpBundle::class => ['all' => true],
 ];
 ```
 
@@ -43,7 +47,7 @@ The Symfony adapter provides compiler passes for service registration, route dis
 
 ## Project structure
 
-A typical application using Zolta HTTP follows a service-oriented structure:
+A typical application using Talred HTTP follows a service-oriented structure:
 
 ```
 app/
@@ -80,11 +84,11 @@ namespace App\Services\BookService\API\Controllers;
 use App\Services\BookService\API\Requests\ListBooksRequest;
 use App\Services\BookService\API\Resources\BookListResource;
 use App\Services\BookService\Application\Services\ListBooksService;
-use Zolta\Http\Controller\Controller;
-use Zolta\Http\Request\Attributes\Request;
-use Zolta\Http\Response\Attributes\Response;
-use Zolta\Http\Router\Attributes\Route;
-use Zolta\Http\Service\Attributes\Service;
+use Talred\Http\Controller\Controller;
+use Talred\Http\Request\Attributes\Request;
+use Talred\Http\Response\Attributes\Response;
+use Talred\Http\Router\Attributes\Route;
+use Talred\Http\Service\Attributes\Service;
 
 final class BookController extends Controller
 {
@@ -102,7 +106,7 @@ final class BookController extends Controller
 
 namespace App\Services\BookService\API\Requests;
 
-use Zolta\Http\Request\BaseRequest;
+use Talred\Http\Request\BaseRequest;
 
 final class ListBooksRequest extends BaseRequest
 {
@@ -145,7 +149,7 @@ class ListBooksService
 
 namespace App\Services\BookService\API\Resources;
 
-use Zolta\Http\Response\Resources\Resource;
+use Talred\Http\Response\Resources\Resource;
 
 final class BookListResource extends Resource
 {

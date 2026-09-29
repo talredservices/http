@@ -13,7 +13,7 @@ The Router module provides attribute-based route registration. Routes are declar
 ## The Route attribute
 
 ```php
-use Zolta\Http\Router\Attributes\Route;
+use Talred\Http\Router\Attributes\Route;
 ```
 
 ### Signature
@@ -146,7 +146,7 @@ The Symfony adapter discovers routes through the `RoutingBootstrap` compiler pas
 The router uses `ReflectionCache` to avoid repeated reflection calls on controller classes. Metadata (attributes, method signatures) is cached after first resolution and reused across requests.
 
 ```php
-use Zolta\Http\Router\Cache\ReflectionCache;
+use Talred\Http\Router\Cache\ReflectionCache;
 
 // Cache is populated automatically during route resolution
 $metadata = ReflectionCache::get(UserController::class);
@@ -155,12 +155,12 @@ $metadata = ReflectionCache::get(UserController::class);
 ## Complete example
 
 ```php
-use Zolta\Http\Controller\Controller;
-use Zolta\Http\Router\Attributes\Route;
-use Zolta\Http\Request\Attributes\Request;
-use Zolta\Http\Service\Attributes\Service;
-use Zolta\Http\Response\Attributes\Response;
-use Zolta\Http\Service\Attributes\Doc;
+use Talred\Http\Controller\Controller;
+use Talred\Http\Router\Attributes\Route;
+use Talred\Http\Request\Attributes\Request;
+use Talred\Http\Service\Attributes\Service;
+use Talred\Http\Response\Attributes\Response;
+use Talred\Http\Service\Attributes\Doc;
 
 final class RoleController extends Controller
 {

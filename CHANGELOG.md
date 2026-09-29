@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased]
+## [2.1.3] - 2026-09-28
+
+### Added
+- Added additive `Talred\Http\...` compatibility aliases backed by the existing `Zolta\Http\...` implementation
+
+### Changed
+- Renamed the Composer package coordinate to `talred/http` and its Forge dependency to `talred/forge`
+- Updated public HTTP documentation and examples to use Talred naming while documenting the Zolta compatibility namespace
 
 ## [2.1.1] - 2026-09-06
 
@@ -52,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version comparison links
 
-[Unreleased]: https://github.com/zoltasoft/http/compare/v2.1.1...HEAD
-[2.1.1]: https://github.com/zoltasoft/http/compare/v2.1.0...v2.1.1
-[2.1.0]: https://github.com/zoltasoft/http/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/zoltasoft/http/compare/v1.0.0...v2.0.0
+[Unreleased]: https://github.com/talredservices/http/compare/v2.1.3...HEAD
+[2.1.3]: https://github.com/talredservices/http/compare/v2.1.2...v2.1.3
+[2.1.1]: https://github.com/talredservices/http/compare/v2.1.0...v2.1.1
+[2.1.0]: https://github.com/talredservices/http/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/talredservices/http/compare/v1.0.0...v2.0.0

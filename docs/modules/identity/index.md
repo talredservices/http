@@ -8,7 +8,7 @@ navigation:
 
 # Identity
 
-The Identity module validates bearer tokens with a Zolta Identity service and exposes the validated identity to Laravel requests.
+The Identity module validates bearer tokens with the Talred Identity service and exposes the validated identity to Laravel requests.
 
 ## Configure a connection
 
@@ -59,7 +59,7 @@ Successful introspection responses are cached using a SHA-256 token hash. `IDENT
 Use `WebhookSignatureVerifier` to verify `v1=` HMAC-SHA256 signatures before processing an Identity webhook:
 
 ```php
-use Zolta\Http\Identity\Laravel\Webhooks\WebhookSignatureVerifier;
+use Talred\Http\Identity\Laravel\Webhooks\WebhookSignatureVerifier;
 
 $verified = app(WebhookSignatureVerifier::class)->verify(
     payload: $request->getContent(),

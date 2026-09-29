@@ -10,7 +10,7 @@ navigation:
 
 ## Framework bridge pattern
 
-Zolta HTTP achieves framework independence through a **bridge pattern** powered by `class_alias` and a `FrameworkRegistry`.
+Talred HTTP achieves framework independence through a **bridge pattern** powered by `class_alias` and a `FrameworkRegistry`.
 
 ### How it works
 
@@ -130,18 +130,18 @@ Rector applies PHP 8.2+ modernization with skip rules for:
 
 | Namespace | Path | Purpose |
 |-----------|------|---------|
-| `Zolta\Http\Router` | `src/Router/` | Route registration and discovery |
-| `Zolta\Http\Router\Attributes` | `src/Router/Attributes/` | Route attribute |
-| `Zolta\Http\Request` | `src/Request/` | Request validation and mapping |
-| `Zolta\Http\Request\Attributes` | `src/Request/Attributes/` | Request attribute |
-| `Zolta\Http\Response` | `src/Response/` | Response payloads and HTTP output |
-| `Zolta\Http\Response\Attributes` | `src/Response/Attributes/` | Response and View attributes |
-| `Zolta\Http\Response\Resources` | `src/Response/Resources/` | Base Resource class |
-| `Zolta\Http\Controller` | `src/Controller/` | Framework-agnostic controller |
-| `Zolta\Http\Service` | `src/Service/` | Service binding and discovery |
-| `Zolta\Http\Service\Attributes` | `src/Service/Attributes/` | Service, Doc, Resource attributes |
-| `Zolta\Http\Service\DTO` | `src/Service/DTO/` | UploadedFileDTO |
-| `Zolta\Http\Exceptions` | `src/Exceptions/` | Exception classes |
-| `Zolta\Http\Exceptions\Traits` | `src/Exceptions/Traits/` | HandlesApiExceptions trait |
-| `Zolta\Http\Authorization` | `src/Authorization/` | AuthorizationMatrix |
-| `Zolta\Http\Symfony` | `src/Adapters/Symfony/` | Symfony adapter |
+| `Talred\Http\Router` | `src/Router/` | Route registration and discovery |
+| `Talred\Http\Router\Attributes` | `src/Router/Attributes/` | Route attribute |
+| `Talred\Http\Request` | `src/Request/` | Request validation and mapping |
+| `Talred\Http\Request\Attributes` | `src/Request/Attributes/` | Request attribute |
+| `Talred\Http\Response` | `src/Response/` | Response payloads and HTTP output |
+| `Talred\Http\Response\Attributes` | `src/Response/Attributes/` | Response and View attributes |
+| `Talred\Http\Response\Resources` | `src/Response/Resources/` | Base Resource class |
+| `Talred\Http\Controller` | `src/Controller/` | Framework-agnostic controller |
+| `Talred\Http\Service` | `src/Service/` | Service binding and discovery |
+| `Talred\Http\Service\Attributes` | `src/Service/Attributes/` | Service, Doc, Resource attributes |
+| `Talred\Http\Service\DTO` | `src/Service/DTO/` | UploadedFileDTO |
+| `Talred\Http\Exceptions` | `src/Exceptions/` | Exception classes |
+| `Talred\Http\Exceptions\Traits` | `src/Exceptions/Traits/` | HandlesApiExceptions trait |
+| `Talred\Http\Authorization` | `src/Authorization/` | AuthorizationMatrix |
+| `Talred\Http\Symfony` | `src/Adapters/Symfony/` | Symfony adapter |

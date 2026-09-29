@@ -13,7 +13,7 @@ The Exceptions module provides exception handling and normalization for API resp
 ## HandlesApiExceptions trait
 
 ```php
-use Zolta\Http\Exceptions\Traits\HandlesApiExceptions;
+use Talred\Http\Exceptions\Traits\HandlesApiExceptions;
 ```
 
 This trait provides a `handleExceptions()` method that wraps service execution in a try-catch with intelligent exception routing:
@@ -33,7 +33,7 @@ public function handleExceptions(callable $callback): mixed;
 ### Usage in services
 
 ```php
-use Zolta\Http\Exceptions\Traits\HandlesApiExceptions;
+use Talred\Http\Exceptions\Traits\HandlesApiExceptions;
 
 class OrderService
 {
@@ -59,7 +59,7 @@ If the callback throws an unexpected exception (database error, third-party API 
 Thrown when a user lacks the required permissions for an action:
 
 ```php
-use Zolta\Http\Exceptions\ActionNotAllowedException;
+use Talred\Http\Exceptions\ActionNotAllowedException;
 
 throw new ActionNotAllowedException('You do not have permission to delete users.');
 ```
@@ -73,7 +73,7 @@ This exception is thrown automatically by the authorization system when `authori
 Thrown when a controller is misconfigured (missing required attributes, invalid attribute combinations):
 
 ```php
-use Zolta\Http\Exceptions\ControllerConfigurationException;
+use Talred\Http\Exceptions\ControllerConfigurationException;
 
 throw new ControllerConfigurationException('Service attribute is required.');
 ```
@@ -87,7 +87,7 @@ This is a developer-facing exception that indicates a wiring problem, not a user
 Generic wrapper for unexpected exceptions:
 
 ```php
-use Zolta\Http\Exceptions\InternalServerErrorException;
+use Talred\Http\Exceptions\InternalServerErrorException;
 
 throw new InternalServerErrorException('An unexpected error occurred.');
 ```

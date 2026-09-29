@@ -13,7 +13,7 @@ The Request module handles input validation, route parameter binding, query opti
 ## The Request attribute
 
 ```php
-use Zolta\Http\Request\Attributes\Request;
+use Talred\Http\Request\Attributes\Request;
 ```
 
 ### Signature
@@ -41,7 +41,7 @@ class Request
 All form requests extend `BaseRequest`, which provides a framework-agnostic interface for validation:
 
 ```php
-use Zolta\Http\Request\BaseRequest;
+use Talred\Http\Request\BaseRequest;
 ```
 
 ### Key methods
@@ -63,7 +63,7 @@ use Zolta\Http\Request\BaseRequest;
 
 namespace App\Services\UserService\API\Requests;
 
-use Zolta\Http\Request\BaseRequest;
+use Talred\Http\Request\BaseRequest;
 
 final class GetUserByIdRequest extends BaseRequest
 {
@@ -246,7 +246,7 @@ Validation failures throw a `ValidationException`.
 The static `RequestMapper::map()` method handles the mapping logic:
 
 ```php
-use Zolta\Http\Request\RequestMapper;
+use Talred\Http\Request\RequestMapper;
 
 $dto = RequestMapper::map(
     data: $validatedData,

@@ -4,7 +4,7 @@
 	"type": "library",
 	"license": "MIT",
 	"keywords": [
-		"zolta",
+		"talred",
 		"http",
 		"api",
 		"routing",
@@ -64,6 +64,7 @@
 			"Zolta\\Http\\Support\\": "src/Support/"
 		},
 		"files": [
+			"src/Compatibility/talred-http-aliases.php",
 			"src/Support/helpers.php"
 		]
 	},
@@ -74,6 +75,9 @@
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
+	"replace": {
+		"zolta/http": "self.version"
+	},
 	"extra": {
 		"laravel": {
 			"providers": [

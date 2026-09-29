@@ -1,4 +1,4 @@
-# Zolta HTTP
+# Talred HTTP
 
 **Declarative APIs. Zero boilerplate.**
 
@@ -15,22 +15,27 @@ public function show() {}  // That's it. The entire endpoint.
 
 First-class Laravel (Symfony support coming soon) adapters. OpenAPI generation from the same attributes. Under 2ms pipeline overhead.
 
+> **Namespace compatibility:** New applications may import `Talred\Http\...`.
+> Those symbols are compatibility aliases for the existing `Zolta\Http\...`
+> implementation, so applications already using the Zolta namespace continue to
+> work unchanged.
+
 ---
 
-## Why Zolta HTTP?
+## Why Talred HTTP?
 
 ### The problem
 
 PHP frameworks give you routing and controllers, but the plumbing between "HTTP request" and "business logic" is still manual. Every endpoint repeats the same pattern: validate input → map to DTO → call service → transform result → shape response. This boilerplate multiplies across hundreds of endpoints, and every copy is a place for inconsistencies to hide.
 
-### What Zolta HTTP does differently
+### What Talred HTTP does differently
 
 | Approach | How it works | Trade-off |
 |----------|-------------|-----------|
 | Laravel Resource Controllers | Convention-based CRUD + manual service calls | Still wiring validation, DTOs, responses by hand |
 | Symfony API Platform | Schema-driven REST/GraphQL generation | Heavy, opinionated, hard to customize beyond CRUD |
 | Spatie Query Builder | Query parameter parsing for Eloquent | Read-only filtering, no full pipeline |
-| **Zolta HTTP** | **Full pipeline declared in attributes — routing to response** | **True zero-boilerplate endpoints, dual framework support** |
+| **Talred HTTP** | **Full pipeline declared in attributes — routing to response** | **True zero-boilerplate endpoints, dual framework support** |
 
 The key insight: your controller method shouldn't *contain* the pipeline — it should *declare* it. Five attributes replace what typically takes 30-50 lines of wiring code per endpoint.
 
@@ -92,12 +97,12 @@ Each step is independently replaceable. The entire pipeline adds **< 2ms overhea
 Controllers are **declaration sites**, not logic containers. Each method declares *what* should happen via attributes — the framework handles *how*:
 
 ```php
-use Zolta\Http\Controller\Controller;
-use Zolta\Http\Router\Attributes\Route;
-use Zolta\Http\Request\Attributes\Request;
-use Zolta\Http\Service\Attributes\Service;
-use Zolta\Http\Response\Attributes\Response;
-use Zolta\Http\Service\Attributes\Doc;
+use Talred\Http\Controller\Controller;
+use Talred\Http\Router\Attributes\Route;
+use Talred\Http\Request\Attributes\Request;
+use Talred\Http\Service\Attributes\Service;
+use Talred\Http\Response\Attributes\Response;
+use Talred\Http\Service\Attributes\Doc;
 
 final class UserController extends Controller
 {
@@ -113,7 +118,7 @@ final class UserController extends Controller
 ### 2. Define a form request
 
 ```php
-use Zolta\Http\Request\BaseRequest;
+use Talred\Http\Request\BaseRequest;
 
 final class GetUserByIdRequest extends BaseRequest
 {
@@ -163,7 +168,7 @@ class GetUserByIdDTO extends InputDTO
 ### 4. Define a resource
 
 ```php
-use Zolta\Http\Response\Resources\Resource;
+use Talred\Http\Response\Resources\Resource;
 
 final class UserResource extends Resource
 {
@@ -306,16 +311,16 @@ composer run test        # PHPUnit only
 
 ---
 
-## Part of the Zolta Ecosystem
+## Part of the Talred ecosystem
 
-Zolta HTTP is the **transport layer** — it wires HTTP to your application through clean attributes:
+Talred HTTP is the **transport layer** — it wires HTTP to your application through clean attributes:
 
 ```
 ┌─────────────────────────────────────────────┐
-│  talred/http (Transport) ← you are here     │
+│  talred/http (Transport) ← you are here      │
 │  Attribute-driven routing & response        │
 ├─────────────────────────────────────────────┤
-│  zolta/cqrs (Application)                   │
+│  talred/cqrs (Application)                  │
 │  Commands, queries, events, transactions    │
 ├─────────────────────────────────────────────┤
 │  talred/forge (Domain)                      │
@@ -327,8 +332,8 @@ When used together: a request arrives → **HTTP** resolves the pipeline via att
 
 | Package | Layer | Link |
 |---------|-------|------|
-| talred/forge | Domain | [`packages/forge`](../zolta-forge) |
-| zolta/cqrs | Application | [`packages/cqrs`](../zolta-cqrs) |
+| talred/forge | Domain | [`packages/forge`](../forge) |
+| talred/cqrs | Application | [`packages/cqrs`](../cqrs) |
 | **talred/http** | **Transport** | You are here |
 
 ---

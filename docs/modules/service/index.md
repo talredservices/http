@@ -13,7 +13,7 @@ The Service module binds controller actions to service classes, provides API doc
 ## The Service attribute
 
 ```php
-use Zolta\Http\Service\Attributes\Service;
+use Talred\Http\Service\Attributes\Service;
 ```
 
 ### Signature
@@ -53,7 +53,7 @@ The framework resolves the service class from the container, invokes it with the
 ## The Doc attribute
 
 ```php
-use Zolta\Http\Service\Attributes\Doc;
+use Talred\Http\Service\Attributes\Doc;
 ```
 
 ### Signature
@@ -94,7 +94,7 @@ The `Doc` attribute metadata can be extracted at build time to generate OpenAPI 
 ## The Resource attribute
 
 ```php
-use Zolta\Http\Service\Attributes\Controller\Resource;
+use Talred\Http\Service\Attributes\Controller\Resource;
 ```
 
 ### Signature
@@ -116,7 +116,7 @@ Used for service-level resource binding when the response resource differs from 
 For file uploads, the `UploadedFileDTO` provides a framework-agnostic representation:
 
 ```php
-use Zolta\Http\Service\DTO\UploadedFileDTO;
+use Talred\Http\Service\DTO\UploadedFileDTO;
 ```
 
 ### Structure
@@ -191,12 +191,12 @@ Services are registered through the DI compiler passes in `src/Adapters/Symfony/
 ## Complete example
 
 ```php
-use Zolta\Http\Controller\Controller;
-use Zolta\Http\Router\Attributes\Route;
-use Zolta\Http\Request\Attributes\Request;
-use Zolta\Http\Service\Attributes\Service;
-use Zolta\Http\Service\Attributes\Doc;
-use Zolta\Http\Response\Attributes\Response;
+use Talred\Http\Controller\Controller;
+use Talred\Http\Router\Attributes\Route;
+use Talred\Http\Request\Attributes\Request;
+use Talred\Http\Service\Attributes\Service;
+use Talred\Http\Service\Attributes\Doc;
+use Talred\Http\Response\Attributes\Response;
 
 final class PermissionController extends Controller
 {

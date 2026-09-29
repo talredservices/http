@@ -1,14 +1,18 @@
 ---
-title: Zolta HTTP
+title: Talred HTTP
 description: Domain-driven HTTP framework for PHP 8.2+ with attribute-based routing, request validation, DTO mapping, and standardized responses.
 navigation:
   title: Introduction
   order: 0
 ---
 
-# Zolta HTTP
+# Talred HTTP
 
-Zolta HTTP is a domain-driven HTTP framework for PHP 8.2+. It provides a declarative, attribute-based approach to building APIs where controllers contain zero logic — all behavior is expressed through PHP attributes that bind routing, validation, service execution, and response shaping.
+Talred HTTP is a domain-driven HTTP framework for PHP 8.2+. It provides a declarative, attribute-based approach to building APIs where controllers contain zero logic — all behavior is expressed through PHP attributes that bind routing, validation, service execution, and response shaping.
+
+> **Compatibility:** `Talred\Http\...` is the public namespace for new code.
+> It aliases the existing `Zolta\Http\...` implementation, so current
+> applications can keep their existing imports during the migration.
 
 ## Key features
 
@@ -22,7 +26,7 @@ Zolta HTTP is a domain-driven HTTP framework for PHP 8.2+. It provides a declara
 
 ## How it works
 
-A typical Zolta HTTP controller looks like this:
+A typical Talred HTTP controller looks like this:
 
 ```php
 final class UserController extends Controller
@@ -46,14 +50,14 @@ The method body is empty. The framework reads the attributes at boot time and wi
 
 | Module | Namespace | Purpose |
 |--------|-----------|---------|
-| [Router](/modules/router) | `Zolta\Http\Router` | Route registration, middleware, auth guards |
-| [Request](/modules/request) | `Zolta\Http\Request` | Validation, DTO mapping, form requests |
-| [Response](/modules/response) | `Zolta\Http\Response` | Response payload, resources, HTTP responses |
-| [Controller](/modules/controller) | `Zolta\Http\Controller` | Framework-agnostic base controller |
-| [Service](/modules/service) | `Zolta\Http\Service` | Service binding, documentation, file uploads |
-| [Exceptions](/modules/exceptions) | `Zolta\Http\Exceptions` | Exception handling and normalization |
-| [Authorization](/modules/authorization) | `Zolta\Http\Authorization` | Abilities, permissions, user resolution |
-| [Identity](/modules/identity) | `Zolta\Http\Identity\Laravel` | Remote Identity token introspection for Laravel |
+| [Router](/modules/router) | `Talred\Http\Router` | Route registration, middleware, auth guards |
+| [Request](/modules/request) | `Talred\Http\Request` | Validation, DTO mapping, form requests |
+| [Response](/modules/response) | `Talred\Http\Response` | Response payload, resources, HTTP responses |
+| [Controller](/modules/controller) | `Talred\Http\Controller` | Framework-agnostic base controller |
+| [Service](/modules/service) | `Talred\Http\Service` | Service binding, documentation, file uploads |
+| [Exceptions](/modules/exceptions) | `Talred\Http\Exceptions` | Exception handling and normalization |
+| [Authorization](/modules/authorization) | `Talred\Http\Authorization` | Abilities, permissions, user resolution |
+| [Identity](/modules/identity) | `Talred\Http\Identity\Laravel` | Remote Identity token introspection for Laravel |
 
 ## Requirements
 

@@ -13,7 +13,7 @@ The Authorization module provides a centralized, configuration-driven system for
 ## AuthorizationMatrix
 
 ```php
-use Zolta\Http\Authorization\AuthorizationMatrix;
+use Talred\Http\Authorization\AuthorizationMatrix;
 ```
 
 The `AuthorizationMatrix` is a static registry that maps named abilities to required permissions, resolves user permissions from configurable paths, and checks whether a user is granted a specific ability.
