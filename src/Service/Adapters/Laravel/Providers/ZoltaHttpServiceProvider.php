@@ -15,23 +15,36 @@ class ZoltaHttpServiceProvider extends ServiceProvider
     public function register(): void
     {
         $httpConfigPath = __DIR__.'/../config/zolta-http.php';
+        $talredHttpConfigPath = __DIR__.'/../config/talred-http.php';
         $securityConfigPath = dirname(__DIR__, 4).'/Authorization/Adapters/Laravel/config/zolta-security.php';
+        $talredSecurityConfigPath = dirname(__DIR__, 4).'/Authorization/Adapters/Laravel/config/talred-security.php';
         $identityConfigPath = __DIR__.'/../config/zolta_identity.php';
+        $talredIdentityConfigPath = __DIR__.'/../config/talred_identity.php';
 
         $this->mergeConfigFrom($httpConfigPath, 'zolta-http');
         $this->mergeConfigFrom($securityConfigPath, 'zolta-security');
         $this->mergeConfigFrom($identityConfigPath, 'zolta_identity');
 
-        $configured = (array) config('zolta', []);
+        $configured = $this->mergeConfigRecursively(
+            (array) config('zolta', []),
+            $this->app['config']->has('talred')
+                ? (array) config('talred', [])
+                : [],
+        );
         $canonicalHttp = (array) ($configured['http'] ?? []);
         $canonicalSecurity = (array) ($configured['security'] ?? []);
         $canonicalIdentity = (array) ($configured['identity'] ?? []);
 
-        // Merge order: package defaults -> legacy aliases -> canonical zolta.*.
-        // This keeps backward compatibility while ensuring canonical keys win.
+        // Merge order: package defaults -> zolta aliases -> talred aliases ->
+        // canonical root keys. This keeps compatibility while making the
+        // Talred surface the preferred override when both roots are present.
         $configured['http'] = $this->mergeConfigRecursively(
             (array) require $httpConfigPath,
             (array) config('zolta-http', []),
+        );
+        $configured['http'] = $this->mergeConfigRecursively(
+            $configured['http'],
+            (array) config('talred-http', (array) require $talredHttpConfigPath),
         );
         $configured['http'] = $this->mergeConfigRecursively(
             $configured['http'],
@@ -44,6 +57,10 @@ class ZoltaHttpServiceProvider extends ServiceProvider
         );
         $configured['security'] = $this->mergeConfigRecursively(
             $configured['security'],
+            (array) config('talred-security', (array) require $talredSecurityConfigPath),
+        );
+        $configured['security'] = $this->mergeConfigRecursively(
+            $configured['security'],
             $canonicalSecurity,
         );
 
@@ -53,15 +70,25 @@ class ZoltaHttpServiceProvider extends ServiceProvider
         );
         $configured['identity'] = $this->mergeConfigRecursively(
             $configured['identity'],
+            (array) config('talred_identity', (array) require $talredIdentityConfigPath),
+        );
+        $configured['identity'] = $this->mergeConfigRecursively(
+            $configured['identity'],
             $canonicalIdentity,
         );
 
+        // Talred is the public configuration surface; zolta remains a
+        // mirrored technical compatibility surface for existing consumers.
         $this->app['config']->set('zolta', $configured);
+        $this->app['config']->set('talred', $configured);
 
-        // Legacy aliases for backward compatibility while zolta.* is canonical.
+        // Package aliases remain available under both names.
         $this->app['config']->set('zolta-http', $configured['http']);
+        $this->app['config']->set('talred-http', $configured['http']);
         $this->app['config']->set('zolta-security', $configured['security']);
+        $this->app['config']->set('talred-security', $configured['security']);
         $this->app['config']->set('zolta_identity', $configured['identity']);
+        $this->app['config']->set('talred_identity', $configured['identity']);
 
         // Core bindings
         $this->app->register(LaravelBridgeServiceProvider::class);
@@ -90,6 +117,18 @@ class ZoltaHttpServiceProvider extends ServiceProvider
         $this->publishes([
             dirname(__DIR__, 4).'/Authorization/Adapters/Laravel/config/zolta-security.php' => config_path('zolta-security.php'),
         ], 'zolta-security-config');
+
+        $this->publishes([
+            __DIR__.'/../config/zolta-http.php' => config_path('talred-http.php'),
+        ], 'talred-http-config');
+
+        $this->publishes([
+            dirname(__DIR__, 4).'/Authorization/Adapters/Laravel/config/zolta-security.php' => config_path('talred-security.php'),
+        ], 'talred-security-config');
+
+        $this->publishes([
+            __DIR__.'/../config/zolta_identity.php' => config_path('talred_identity.php'),
+        ], 'talred-identity-config');
     }
 
     /**

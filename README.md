@@ -58,8 +58,13 @@ Laravel auto-discovers the service provider. For Symfony, register the bundle in
 `v2.1.0` adds optional remote Identity token validation. Publish the configuration, set `IDENTITY_API_URL`, `IDENTITY_CLIENT_ID`, and `IDENTITY_CLIENT_SECRET`, then protect a route with `identity.introspect`:
 
 ```bash
-php artisan vendor:publish --tag=identity-consumer-config
+php artisan vendor:publish --tag=talred-identity-consumer-config
 ```
+
+The original `identity-consumer-config` tag remains available for existing
+applications. New applications should use `talred.identity_consumer.*`; the
+provider mirrors the resolved values to `zolta.identity_consumer.*` and the
+legacy `identity-consumer` key.
 
 ```php
 Route::get('/profile', ProfileController::class)->middleware('identity.introspect');

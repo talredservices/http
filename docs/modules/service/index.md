@@ -181,8 +181,12 @@ The `ZoltaHttpServiceProvider` registers:
 
 ```php
 // Published config
-php artisan vendor:publish --tag=zolta-config
+php artisan vendor:publish --tag=talred-config
 ```
+
+The Talred HTTP aliases are additive. `talred-http-config` and
+`talred-security-config` publish Talred-named component files, while the
+existing Zolta tags and keys remain supported.
 
 ### Symfony
 

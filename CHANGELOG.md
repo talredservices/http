@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.4] - 2026-09-28
+
+### Added
+
+- Added Talred-named HTTP, security, Identity, and Identity-consumer configuration aliases and publish tags.
+- Added support for `talred.*` configuration roots while retaining the existing Zolta and legacy aliases.
+
+### Changed
+
+- Talred root configuration takes precedence over Zolta and package-specific compatibility aliases.
+
 ## [2.1.3] - 2026-09-28
 
 ### Added
@@ -59,7 +70,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version comparison links
 
-[Unreleased]: https://github.com/talredservices/http/compare/v2.1.3...HEAD
+[Unreleased]: https://github.com/talredservices/http/compare/v2.1.4...HEAD
+[2.1.4]: https://github.com/talredservices/http/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/talredservices/http/compare/v2.1.2...v2.1.3
 [2.1.1]: https://github.com/talredservices/http/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/talredservices/http/compare/v2.0.0...v2.1.0

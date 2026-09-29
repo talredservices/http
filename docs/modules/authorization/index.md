@@ -201,10 +201,11 @@ final class DeleteUserRequest extends BaseRequest
 The Authorization module integrates with Laravel through:
 
 - `AuthorizationServiceProvider` — Registers the user resolver and loads abilities from config
-- Config file published to `config/zolta-authorization.php`
+- Config file published to `config/talred-security.php` (the existing
+  `zolta-security.php` file remains supported)
 
 ```php
-// config/zolta-authorization.php
+// config/talred-security.php
 return [
     'abilities' => [
         'can_manage_users' => ['users.read', 'users.write'],

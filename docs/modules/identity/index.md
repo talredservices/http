@@ -15,7 +15,7 @@ The Identity module validates bearer tokens with the Talred Identity service and
 Publish the configuration, then provide credentials for at least one connection:
 
 ```bash
-php artisan vendor:publish --tag=identity-consumer-config
+php artisan vendor:publish --tag=talred-identity-consumer-config
 ```
 
 ```dotenv
@@ -27,7 +27,9 @@ IDENTITY_CLIENT_SECRET=secret
 
 The published configuration supports separate `live` and `sandbox` connections. Set `IDENTITY_SANDBOX_*` variables when your application needs a sandbox connection. The `project` value is optional; when present, the returned `project_id` or `project_slug` must match it.
 
-Identity settings are read from `zolta.identity_consumer`. The legacy `identity-consumer` configuration key remains supported for existing applications.
+Identity settings are read from `talred.identity_consumer`. The existing
+`zolta.identity_consumer`, `identity-consumer`, and
+`talred-identity-consumer` configuration keys remain supported.
 
 ## Protect a route
 
