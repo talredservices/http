@@ -143,8 +143,8 @@ When the `#[Request]` attribute specifies an `inputDto`, validated data is autom
 ```php
 <?php
 
-use Zolta\Support\Application\DTO\Input\InputDTO;
-use Zolta\Support\Application\Attributes\FromRequest;
+use Talred\Support\Application\DTO\Input\InputDTO;
+use Talred\Support\Application\Attributes\FromRequest;
 
 class CreateUserDTO extends InputDTO
 {

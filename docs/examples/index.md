@@ -186,8 +186,8 @@ final class GetUserByIdRequest extends BaseRequest
 namespace App\Services\UserManagementService\Application\DTOs\Input\auth;
 
 use App\Services\UserManagementService\Application\Attributes\Validation\Required;
-use Zolta\Support\Application\Attributes\FromRequest;
-use Zolta\Support\Application\DTO\Input\InputDTO;
+use Talred\Support\Application\Attributes\FromRequest;
+use Talred\Support\Application\DTO\Input\InputDTO;
 
 class RegisterInputDTO extends InputDTO
 {

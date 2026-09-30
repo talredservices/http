@@ -157,8 +157,8 @@ treated with the same trusted precedence.
 ### 3. Define an input DTO
 
 ```php
-use Zolta\Support\Application\DTO\Input\InputDTO;
-use Zolta\Support\Application\Attributes\FromRequest;
+use Talred\Support\Application\DTO\Input\InputDTO;
+use Talred\Support\Application\Attributes\FromRequest;
 
 class GetUserByIdDTO extends InputDTO
 {
@@ -252,6 +252,7 @@ Route metadata resolution uses a 3-tier cache: runtime memory → persistent sto
 `AttributeRouteCache` compiles routes into `bootstrap/cache/attribute_routes.php` with file-level tracking — only changed controllers trigger rebuilds.
 
 ```bash
+# These technical command names remain stable for compatibility.
 php artisan zolta:routes:cache    # Build route cache
 php artisan zolta:routes:clear    # Clear route cache
 php artisan zolta:routes:watch    # Watch for file changes in development

@@ -116,7 +116,7 @@ PHPStan is configured at level 6 with targeted ignoreErrors for:
 
 - `class_alias` bridge patterns (unresolvable inheritance)
 - Optional framework dependencies (Symfony validators)
-- External package references (Zolta\Core, Zolta\Laravel)
+- External package references retained for legacy Zolta compatibility adapters
 - Iterable type declarations on adapter boundaries
 
 ### Rector configuration
